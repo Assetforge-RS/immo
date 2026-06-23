@@ -1,216 +1,105 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Immobilien-Check Rheinland</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immobilien-Check Köln</title>
 
   <style>
-    :root {
-      --bg: #f5f7f6;
-      --card: #ffffff;
-      --green: #2f6f5e;
-      --green2: #3f8f78;
-      --text: #1d1d1f;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --warn: #fff3cd;
-      --danger: #ffe4e6;
-      --ok: #dcfce7;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: #f4f3ef;
+      color: #1f2933;
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(135deg, var(--green), var(--green2));
+      background: #123c35;
       color: white;
-      padding: 36px 22px 28px;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
+      padding: 64px 24px;
+      text-align: center;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 28px;
-      line-height: 1.15;
+      font-size: 36px;
+      margin: 0 0 16px;
     }
 
     header p {
-      margin-top: 12px;
-      font-size: 16px;
-      opacity: 0.95;
-    }
-
-    nav {
-      display: flex;
-      gap: 8px;
-      padding: 14px;
-      overflow-x: auto;
-      position: sticky;
-      top: 0;
-      background: rgba(245,247,246,0.95);
-      backdrop-filter: blur(10px);
-      z-index: 10;
-    }
-
-    nav button {
-      border: none;
-      background: white;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-weight: 600;
-      color: var(--green);
-      white-space: nowrap;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    nav button.active {
-      background: var(--green);
-      color: white;
-    }
-
-    main {
-      padding: 14px;
-      max-width: 760px;
+      font-size: 19px;
+      max-width: 680px;
       margin: 0 auto;
     }
 
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
     section {
-      display: none;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 22px;
-      padding: 20px;
-      margin-bottom: 16px;
+      background: white;
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 22px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
 
     h2 {
-      margin: 0 0 12px;
-      font-size: 22px;
-    }
-
-    h3 {
-      margin-bottom: 8px;
-    }
-
-    p {
-      line-height: 1.5;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      border: none;
-      border-radius: 16px;
-      background: var(--green);
-      color: white;
-      padding: 15px;
-      font-size: 16px;
-      font-weight: 700;
-      margin-top: 12px;
-      text-align: center;
-      text-decoration: none;
-    }
-
-    .btn.secondary {
-      background: #eef5f2;
-      color: var(--green);
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      font-size: 16px;
-      margin: 6px 0 12px;
-      background: white;
-    }
-
-    textarea {
-      min-height: 90px;
-    }
-
-    label {
-      font-weight: 600;
-      font-size: 14px;
+      margin-top: 0;
+      color: #123c35;
+      font-size: 26px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
+      gap: 18px;
     }
 
-    .package {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px;
+    .box {
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 20px;
       background: #fafafa;
     }
 
     .price {
       font-size: 24px;
-      color: var(--green);
       font-weight: 800;
-    }
-
-    .check {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .check input {
-      width: 22px;
-      height: 22px;
-      margin: 0;
-    }
-
-    .risk {
-      padding: 12px;
-      border-radius: 14px;
+      color: #123c35;
       margin-top: 10px;
-      font-weight: 700;
     }
 
-    .ok { background: var(--ok); }
-    .warn { background: var(--warn); }
-    .danger { background: var(--danger); }
+    .button {
+      display: inline-block;
+      background: #123c35;
+      color: white;
+      text-decoration: none;
+      padding: 15px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      margin-top: 12px;
+    }
 
-    .small {
-      color: var(--muted);
-      font-size: 13px;
+    ul {
+      padding-left: 22px;
     }
 
     footer {
-      padding: 24px;
       text-align: center;
-      color: var(--muted);
-      font-size: 13px;
+      padding: 30px;
+      color: #6b7280;
+      font-size: 14px;
     }
 
     @media (min-width: 700px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      header h1 {
+        font-size: 48px;
       }
     }
   </style>
@@ -219,294 +108,97 @@
 <body>
 
 <header>
-  <h1>Immobilien-Check Rheinland</h1>
-  <p>Technische Kaufbegleitung, Unterlagen-Check und Renovierungsplanung für Immobilienkäufer in Köln und Umgebung.</p>
+  <h1>Immobilien-Check Köln</h1>
+  <p>Technische Kaufbegleitung, Unterlagenprüfung und Renovierungsplanung für Immobilienkäufer in Köln und Umgebung.</p>
 </header>
-
-<nav>
-  <button class="active" onclick="showTab('home', this)">Start</button>
-  <button onclick="showTab('leistungen', this)">Leistungen</button>
-  <button onclick="showTab('app', this)">Check-App</button>
-  <button onclick="showTab('bericht', this)">Bericht</button>
-  <button onclick="showTab('kontakt', this)">Kontakt</button>
-</nav>
 
 <main>
 
-<section id="home" class="active">
-  <div class="card">
-    <h2>Immobilien kaufen ohne böse Überraschung</h2>
+  <section>
+    <h2>Immobilien kaufen mit klarem Blick</h2>
     <p>
-      Ich begleite Käufer vor dem Immobilienkauf, prüfe den Zustand der Immobilie,
-      werte Unterlagen aus und erstelle eine realistische Einschätzung zu Risiken,
-      Sanierungskosten und nächsten Schritten.
+      Viele Käufer sehen Lage, Grundriss und Kaufpreis. Die eigentlichen Risiken liegen aber oft in Elektrik,
+      Heizung, Fenstern, Feuchtigkeit, Gemeinschaftseigentum, Protokollen und anstehenden Sanierungen.
     </p>
-    <a class="btn" href="#kontakt" onclick="showTabById('kontakt')">Erstgespräch anfragen</a>
-  </div>
+    <p>
+      Ich unterstütze Käufer dabei, eine Immobilie technisch und wirtschaftlich besser einzuschätzen —
+      bevor sie kaufen.
+    </p>
+    <a class="button" href="mailto:deine-mailadresse@example.de?subject=Anfrage Immobilien-Check">Erstgespräch anfragen</a>
+  </section>
 
-  <div class="card">
-    <h2>Typische Fragen</h2>
-    <div class="check">✅ Was muss sofort gemacht werden?</div>
-    <div class="check">✅ Welche Sanierungskosten kommen realistisch auf mich zu?</div>
-    <div class="check">✅ Gibt es Risiken in WEG-Unterlagen oder Protokollen?</div>
-    <div class="check">✅ Welche Handwerker brauche ich zuerst?</div>
-  </div>
-</section>
+  <section>
+    <h2>Leistungen</h2>
 
-<section id="leistungen">
-  <div class="card">
-    <h2>Leistungspakete</h2>
+    <div class="grid">
+      <div class="box">
+        <h3>Kaufbegleitung</h3>
+        <p>Gemeinsame Besichtigung, technische Einschätzung, Mängelliste und erste Kostenspanne.</p>
+        <div class="price">ab 499 €</div>
+      </div>
 
-    <div class="package">
-      <h3>Kaufbegleitung</h3>
-      <p>Gemeinsame Besichtigung, technische Einschätzung, Mängelliste und Kostenspanne.</p>
-      <div class="price">ab 499 €</div>
+      <div class="box">
+        <h3>Unterlagen-Check</h3>
+        <p>Prüfung von Protokollen, Wirtschaftsplan, Rücklagen, Energieausweis und Sanierungsthemen.</p>
+        <div class="price">ab 299 €</div>
+      </div>
+
+      <div class="box">
+        <h3>Renovierungsplanung</h3>
+        <p>Maßnahmenliste, Prioritäten, grobe Kosten, Ablaufplanung und Handwerkerstruktur.</p>
+        <div class="price">ab 799 €</div>
+      </div>
+
+      <div class="box">
+        <h3>Handwerker-Koordination</h3>
+        <p>Angebotsvergleich, Terminabstimmung, Baustellenbegleitung und Qualitätskontrolle.</p>
+        <div class="price">nach Aufwand</div>
+      </div>
     </div>
+  </section>
 
-    <br>
+  <section>
+    <h2>Typische Prüfpunkte</h2>
+    <ul>
+      <li>Elektrik und Sicherungskasten</li>
+      <li>Heizung und Warmwasser</li>
+      <li>Fenster, Türen und Dämmung</li>
+      <li>Bad, Leitungen und Feuchtigkeit</li>
+      <li>Böden, Wände und Decken</li>
+      <li>Dach, Fassade und Gemeinschaftseigentum</li>
+      <li>WEG-Protokolle, Rücklagen und Wirtschaftsplan</li>
+      <li>Sanierungsrisiken und Modernisierungsbedarf</li>
+    </ul>
+  </section>
 
-    <div class="package">
-      <h3>Unterlagen-Check</h3>
-      <p>Prüfung von Energieausweis, Protokollen, Wirtschaftsplan, Rücklagen und Sanierungsstau.</p>
-      <div class="price">ab 299 €</div>
-    </div>
+  <section>
+    <h2>Für wen ist das sinnvoll?</h2>
+    <p>
+      Für Käufer von Eigentumswohnungen, Häusern und sanierungsbedürftigen Immobilien,
+      die vor dem Kauf eine unabhängige technische Einschätzung möchten.
+    </p>
+    <p>
+      Besonders sinnvoll ist der Immobilien-Check bei älteren Objekten, Erbimmobilien,
+      Maisonettewohnungen, WEG-Anlagen oder Immobilien mit Renovierungsbedarf.
+    </p>
+  </section>
 
-    <br>
-
-    <div class="package">
-      <h3>Renovierungsplanung</h3>
-      <p>Maßnahmenplan, Prioritäten, grobe Kostenschätzung und Handwerkerstruktur.</p>
-      <div class="price">ab 799 €</div>
-    </div>
-
-    <br>
-
-    <div class="package">
-      <h3>Handwerker-Koordination</h3>
-      <p>Angebotsvergleich, Terminplanung, Baustellenbegleitung und Qualitätskontrolle.</p>
-      <div class="price">nach Aufwand</div>
-    </div>
-  </div>
-</section>
-
-<section id="app">
-  <div class="card">
-    <h2>Immobilien-Check-App</h2>
-    <p class="small">Daten eingeben, Risiken bewerten und am Ende einen Kurzbericht erzeugen.</p>
-
-    <label>Objektadresse</label>
-    <input id="adresse" placeholder="z. B. Köln-Deutz, Musterstraße 1">
-
-    <label>Objekttyp</label>
-    <select id="typ">
-      <option>Eigentumswohnung</option>
-      <option>Einfamilienhaus</option>
-      <option>Mehrfamilienhaus</option>
-      <option>Maisonettewohnung</option>
-    </select>
-
-    <label>Baujahr</label>
-    <input id="baujahr" type="number" placeholder="z. B. 1950">
-
-    <label>Wohnfläche in m²</label>
-    <input id="flaeche" type="number" placeholder="z. B. 100">
-
-    <label>Kaufpreis in €</label>
-    <input id="kaufpreis" type="number" placeholder="z. B. 400000">
-  </div>
-
-  <div class="card">
-    <h2>Gewerke bewerten</h2>
-
-    <label>Elektrik</label>
-    <select id="elektrik">
-      <option value="0">gut</option>
-      <option value="1">prüfen</option>
-      <option value="2">erneuern</option>
-    </select>
-
-    <label>Heizung</label>
-    <select id="heizung">
-      <option value="0">gut</option>
-      <option value="1">prüfen</option>
-      <option value="2">erneuern</option>
-    </select>
-
-    <label>Fenster</label>
-    <select id="fenster">
-      <option value="0">gut</option>
-      <option value="1">mittelfristig erneuern</option>
-      <option value="2">erneuern</option>
-    </select>
-
-    <label>Bad</label>
-    <select id="bad">
-      <option value="0">gut</option>
-      <option value="1">modernisieren</option>
-      <option value="2">komplett sanieren</option>
-    </select>
-
-    <label>Böden</label>
-    <select id="boden">
-      <option value="0">gut</option>
-      <option value="1">aufarbeiten</option>
-      <option value="2">erneuern</option>
-    </select>
-
-    <label>Wände / Decken</label>
-    <select id="waende">
-      <option value="0">gut</option>
-      <option value="1">renovieren</option>
-      <option value="2">umfangreich sanieren</option>
-    </select>
-
-    <label>Dach / Fassade / Gemeinschaftseigentum</label>
-    <select id="gemeinschaft">
-      <option value="0">unauffällig</option>
-      <option value="1">prüfen</option>
-      <option value="2">kritisch</option>
-    </select>
-
-    <label>Notizen</label>
-    <textarea id="notizen" placeholder="Besondere Punkte, Risiken, Fragen an Verkäufer/Makler..."></textarea>
-
-    <button class="btn" onclick="generateReport()">Bericht erzeugen</button>
-  </div>
-</section>
-
-<section id="bericht">
-  <div class="card">
-    <h2>Kurzbericht</h2>
-    <div id="report">
-      Noch kein Bericht erstellt.
-    </div>
-    <button class="btn secondary" onclick="window.print()">Als PDF speichern / drucken</button>
-  </div>
-</section>
-
-<section id="kontakt">
-  <div class="card">
+  <section>
     <h2>Kontakt</h2>
     <p>
-      Sie möchten eine Immobilie kaufen und wünschen eine neutrale technische Einschätzung?
+      Senden Sie mir einfach die Eckdaten zur Immobilie, den Besichtigungstermin und vorhandene Unterlagen.
     </p>
-
-    <label>Name</label>
-    <input id="name" placeholder="Ihr Name">
-
-    <label>E-Mail</label>
-    <input id="email" type="email" placeholder="name@example.de">
-
-    <label>Nachricht</label>
-    <textarea id="message" placeholder="Worum geht es? Besichtigung, Unterlagen-Check oder Renovierungsplanung?"></textarea>
-
-    <a class="btn" onclick="sendMail()">Anfrage per E-Mail vorbereiten</a>
-
-    <p class="small">
-      Hinweis: Diese Website ersetzt kein Verkehrswertgutachten, keine Rechtsberatung und keine statische Prüfung.
+    <a class="button" href="mailto:deine-mailadresse@example.de?subject=Anfrage Immobilien-Check">Kontakt aufnehmen</a>
+    <p style="font-size:13px;color:#6b7280;margin-top:18px;">
+      Hinweis: Die Leistung ersetzt kein Verkehrswertgutachten, keine Rechtsberatung und keine statische Prüfung.
     </p>
-  </div>
-</section>
+  </section>
 
 </main>
 
 <footer>
-  Immobilien-Check Rheinland · Technische Kaufbegleitung · Köln und Umgebung
+  Immobilien-Check Köln · Technische Kaufbegleitung · Köln und Umgebung
 </footer>
-
-<script>
-  function showTab(id, btn) {
-    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-
-    document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-  }
-
-  function showTabById(id) {
-    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-  }
-
-  function getValue(id) {
-    return document.getElementById(id).value || "";
-  }
-
-  function generateReport() {
-    const items = ["elektrik", "heizung", "fenster", "bad", "boden", "waende", "gemeinschaft"];
-    let score = 0;
-
-    items.forEach(id => {
-      score += Number(getValue(id));
-    });
-
-    let risikoText = "";
-    let risikoClass = "";
-
-    if (score <= 3) {
-      risikoText = "Geringes technisches Risiko";
-      risikoClass = "ok";
-    } else if (score <= 8) {
-      risikoText = "Mittleres Risiko – Sanierungsbudget einplanen";
-      risikoClass = "warn";
-    } else {
-      risikoText = "Hohes Risiko – vertiefte Prüfung empfohlen";
-      risikoClass = "danger";
-    }
-
-    const flaeche = Number(getValue("flaeche"));
-    let kosten = score * flaeche * 120;
-    if (!kosten || kosten < 0) kosten = 0;
-
-    const reportHTML = `
-      <h3>${getValue("adresse") || "Unbenanntes Objekt"}</h3>
-      <p><strong>Objekttyp:</strong> ${getValue("typ")}</p>
-      <p><strong>Baujahr:</strong> ${getValue("baujahr") || "-"}</p>
-      <p><strong>Wohnfläche:</strong> ${getValue("flaeche") || "-"} m²</p>
-      <p><strong>Kaufpreis:</strong> ${getValue("kaufpreis") || "-"} €</p>
-
-      <div class="risk ${risikoClass}">${risikoText}</div>
-
-      <h3>Bewertung</h3>
-      <p><strong>Elektrik:</strong> ${document.getElementById("elektrik").selectedOptions[0].text}</p>
-      <p><strong>Heizung:</strong> ${document.getElementById("heizung").selectedOptions[0].text}</p>
-      <p><strong>Fenster:</strong> ${document.getElementById("fenster").selectedOptions[0].text}</p>
-      <p><strong>Bad:</strong> ${document.getElementById("bad").selectedOptions[0].text}</p>
-      <p><strong>Böden:</strong> ${document.getElementById("boden").selectedOptions[0].text}</p>
-      <p><strong>Wände / Decken:</strong> ${document.getElementById("waende").selectedOptions[0].text}</p>
-      <p><strong>Gemeinschaftseigentum:</strong> ${document.getElementById("gemeinschaft").selectedOptions[0].text}</p>
-
-      <h3>Grobe Kostenspanne</h3>
-      <p>Erste überschlägige Orientierung: <strong>${kosten.toLocaleString("de-DE")} €</strong></p>
-
-      <h3>Notizen</h3>
-      <p>${getValue("notizen") || "Keine Notizen erfasst."}</p>
-
-      <p class="small">
-        Hinweis: Dies ist eine erste technische Orientierung und ersetzt keine Fachplanung,
-        Statik, Rechtsberatung oder ein Verkehrswertgutachten.
-      </p>
-    `;
-
-    document.getElementById("report").innerHTML = reportHTML;
-    showTabById("bericht");
-  }
-
-  function sendMail() {
-    const name = getValue("name");
-    const email = getValue("email");
-    const message = getValue("message");
-
-    const subject = encodeURIComponent("Anfrage Immobilien-Check");
-    const body = encodeURIComponent(
-      "Name: " + name + "\\n" +
-      "E-Mail: " + email + "\\n\\n" +
-      "Nachricht:\\n" + message
-    );
-
-    window.location.href = `mailto:deine-mailadresse@example.de?subject=${subject}&body=${body}`;
-  }
-</script>
 
 </body>
 </html>
